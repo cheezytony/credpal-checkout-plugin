@@ -1,0 +1,608 @@
+// Modal Background
+$modal-bg: rgba(#000, .5)
+$modal-bg-dev: #000
+
+// Modal Width
+$modal-width: 700px
+
+$sidebar-width: 200px
+
+// Modal Shadow
+$modal-shadow: 0 4px 4px rgba(#000, .25)
+
+// Spacing
+$p1: 7.5px
+$p2: 15px
+$p3: 30px
+$p4: 60px
+
+// Colors
+$primary: #105AD1
+$danger: #E06666
+$success: #1CF1A1
+$warning: #F88600
+$dark: #333333
+$light: #F8F9FA
+// $success-dark: #158F21
+
+// Inputs
+$input-background-color: $light
+$input-border-color: #4F85DC
+$input-border-color: #c4c4c4
+$input-color: #979797
+$input-placeholder-color: #ABABAB
+$input-label-color: #979797
+
+$input-border-radius: 5px
+$input-font-size: 15px
+
+$track-color: #eceff1
+$thumb-color: linear-gradient(#c5c5c5, #efefef) content-box, linear-gradient(#fdfdfd, #c4c4c4) border-box
+
+$thumb-radius: 999px
+$thumb-height: 40px
+$thumb-width: $thumb-height
+$thumb-shadow:  0 .375em .5em -.125em #808080, inset 0 -.25em .5em -.125em #bbb
+$thumb-border-color: #eceff1
+$thumb-border-width: 0px
+
+$track-width: 100%
+$track-height: 40px
+$track-shadow: inset 0 -1px 1px #fff, inset 0 .5em .5em #c4c4c4, inset 0 0 0 .375em #efefef, inset 0 1px .125em .375em black, inset 0 0 0 1px #eee
+$track-border-color: #cfd8dc
+$track-border-width: 0px
+
+$track-radius: 999px
+$contrast: 5%
+
+$ie-bottom-track-color: darken($track-color, $contrast) !default
+
+=track
+	background: linear-gradient(#bfbfbf, #eee 35%, #f5f5f5)
+	cursor: default
+	height: $track-height
+	transition: all .2s ease
+	width: $track-width
+
+=thumb($adjustment: 0)
+	background: $thumb-color
+	border: $thumb-border-width solid $thumb-border-color
+	border-radius: $thumb-radius
+	box-shadow: $thumb-shadow
+	cursor: pointer
+	height: $thumb-height + $adjustment
+	padding: $thumb-height / 5
+	width: $thumb-width + $adjustment
+
+=disabled
+	cursor: not-allowed
+
+$Raleway: (Thin, 100), (ExtraLight, 200), (Light, 300), (Regular, 400), (Medium, 500) , (SemiBold, 600), (Bold, 700), (ExtraBold, 800), (Black, 900)
+
+@each $group in $Raleway
+	@font-face
+		font-family: Raleway
+		font-weight: nth($group, 2)
+		src: url('/fonts/Raleway/Raleway-#{nth($group, 1)}.ttf')
+
+$Roboto: (Thin, 100), (ExtraLight, 200), (Light, 300), (Regular, 400), (Medium, 500) , (SemiBold, 600), (Bold, 700), (ExtraBold, 800), (Black, 900)
+
+@each $group in $Roboto
+	@font-face
+		font-family: Roboto
+		font-weight: nth($group, 2)
+		src: url('/fonts/Roboto/Roboto-#{nth($group, 1)}.ttf')
+
+@keyframes cp-spin
+	from
+		transform: rotate(0deg)
+	to
+		transform: rotate(359deg)
+
+.cp-body,
+.cp-body *
+	box-sizing: border-box
+	*:focus
+		outline: none !important
+
+.cp-body
+	font-family: Raleway, sans-serif, arial
+	font-weight: 300
+	input[type="file"],
+	select
+		-webkit-appearance: none
+		cursor: pointer
+	p
+		color: #c4c4c4
+		margin-top: 0
+		margin-bottom: $p1
+
+	.cp
+		&-container
+			// background: $modal-bg-dev
+			height: 100%
+			left: 0
+			overflow-y: auto
+			padding: $p4
+			position: fixed
+			top: 0
+			width: 100%
+			@media (max-width: 767px)
+				padding: $p1
+		&-dialog
+			margin: auto
+			max-width: calc(100% - 15px)
+			width: $modal-width
+		&-content
+			background: #fff
+			border-radius: 3px
+			border-top: 7px solid $primary
+			display: -webkit-flex
+			display: -moz-flex
+			display: -ms-flex
+			display: -o-flex
+			display: flex
+			flex-wrap: wrap
+		&-sidebar
+			background: $light
+			box-shadow: $modal-shadow
+			border-bottom-left-radius: 3px
+			flex: 0 0 $sidebar-width
+			margin-top: -2px
+			max-width: $sidebar-width
+			padding: $p3
+			position: relative
+			z-index: 2
+			@media (max-width: 768px)
+				padding: $p2
+			&-logo
+				display: block
+				height: 25px
+				margin: auto
+				max-width: 100%
+		&-main
+			// align-items: center
+			background: #fff
+			box-shadow: $modal-shadow
+			border-bottom-right-radius: 3px
+			// display: -webkit-flex
+			// display: -moz-flex
+			// display: -ms-flex
+			// display: -o-flex
+			// display: flex
+			flex-basis: 0
+			flex-grow: 1
+			min-height: 400px
+			padding: $p3
+			position: relative
+			z-index: 1
+			@media (max-width: 425px)
+				padding: $p2
+		&-body
+			width: 100%
+		&-input
+			background: $input-background-color
+			border: 1px solid $input-border-color
+			border-radius: $input-border-radius
+			color: $input-color
+			display: block
+			font-family: inherit
+			font-size: $input-font-size 
+			font-weight: 400
+			height: 50px
+			padding: $p1 $p2
+			width: 100%
+			&:focus
+				border-color: $primary
+			&::placeholder
+				color: $input-placeholder-color
+			&-group
+				display: -webkit-flex
+				display: -moz-flex
+				display: -ms-flex
+				display: -o-flex
+				display: flex
+				flex-flow: row
+				position: relative
+				&-btn
+					border: 1px solid $input-border-color !important
+					flex: 0 0 auto
+					height: 50px !important
+					line-height: 50px !important
+					padding-top: 0 !important
+					padding-bottom: 0 !important
+					text-align: center
+					&.cp-select-btn
+						width: 50px
+						&:after
+							border: 5px solid transparent
+							border-top: 10px solid $input-color
+							content: ''
+							display: inline-block
+							margin-top: 20px
+				.cp-input,
+				.cp-input-group-btn
+					&:not(:first-child)
+						border-bottom-left-radius: 0 !important
+						border-top-left-radius: 0 !important
+						border-left: none
+					&:not(:last-child)
+						border-bottom-right-radius: 0 !important
+						border-top-right-radius: 0 !important
+						border-right: none
+				&:after
+					background-position: center
+					background-size: 100% 100%
+					content: ''
+					display: block
+					height: 25px
+					margin-top: calc(-25px / 2)
+					pointer-events: none
+					position: absolute
+					right: $p2
+					top: 50%
+					width: 25px
+				&.cp
+					&-loading,
+					&-error,
+					&-success
+						.cp-input
+							padding-right: $p2 + 25px
+					&-loading
+						&:after
+							animation: cp-spin 1s linear infinite
+							background-image: url(../svg/spinner.svg)
+					&-error
+						.cp-input
+							border-color: $danger
+						&:after
+							background-image: url(../svg/error.svg)
+					&-success
+						.cp-input
+							border-color: $success
+						&:after
+							background-image: url(../svg/success.svg)
+			&-label
+				color: $input-label-color
+				display: inline-block
+				font-size: $input-font-size + 2px
+				margin-bottom: $p1
+				font-weight: 400
+		&-switch
+			display: inline-block
+			float: right
+			vertical-align: middle
+			label
+				background: $danger
+				border-radius: 999px
+				cursor: pointer
+				display: inline-block
+				font-size: 12px
+				height: 30px
+				padding: 5px
+				position: relative
+				width: 65px
+				&:before,
+				&:after
+					color: #fff
+					content: ''
+					text-transform: uppercase
+					position: absolute
+					top: 50%
+					transform: translateY(-50%)
+				&:before
+					background: #FFF
+					border-radius: 999px
+					height: 25px
+					right: 3px
+					width: 25px
+				&:after
+					content: attr(data-off)
+					left: 10px
+			input[type="checkbox"]
+				display: none
+				&:checked
+					+ label
+						background: $success
+						&:before
+							left: 3px
+						&:after
+							content: attr(data-on)
+							left: auto
+							right: 10px
+		&-form
+			&-elements
+				width: 100%
+			&-group
+				margin-bottom: $p3
+			&-text
+				font-size: 14px
+				margin-top: 5px
+				width: 100%
+
+		&-btn
+			background: $input-background-color
+			border-radius: $input-border-radius
+			border-color: transparent
+			color: $dark
+			cursor: pointer
+			display: inline-block
+			font-family: inherit
+			font-size: $input-font-size
+			height: 40px
+			padding: 0 $p2
+			&-wide
+				min-width: 150px
+			&-success
+				background: $success
+				color: #fff
+				&:hover
+					background: darken($success, 10%)
+					color: #fff
+				&:focus
+					background: darken($success, 15%)
+					color: #fff
+				&:active
+					background: darken($success, 20%)
+					color: #fff
+		&-tab
+			display: none
+			&-active
+				display: block
+			&-loading
+				opacity: .5
+				position: relative
+				pointer-events: none
+
+		&-navigation
+			display: block
+			margin-bottom: $p3
+			width: 100%
+			ul
+				display: flex
+				flex-flow: row
+				justify-content: space-between
+				list-style: none
+				margin: 0
+				padding: 0
+				width: 100%
+				li
+					flex-basis: 0
+					flex-grow: 1
+					padding: $p1 $p2
+					position: relative
+					a
+						color: #c4c4c4
+						cursor: pointer
+						display: block
+						font-size: 14px
+						// font-weight: 600
+						height: 100%
+						position: relative
+						text-decoration: none
+						&:after
+							background: #D4D4D4
+							content: ''
+							display: block
+							height: 3px
+							left: 0
+							margin-top: $p1
+							top: 100%
+							position: absolute
+							width: 100%
+						&.cp-tab-ready
+							color: $primary
+							&:after
+								background: $primary
+		&-payment
+			&-month
+				color: $warning
+			&-range
+				-webkit-appearance: none
+				background: transparent
+				margin: 10px 0 30px
+				width: $track-width
+				&::-moz-focus-outer
+					border: 0
+
+				&:focus
+					outline: 0
+
+					&::-webkit-slider-runnable-track
+						// background: lighten($track-color, $contrast)
+
+					&::-ms-fill-lower
+						// background: $track-color
+
+					&::-ms-fill-upper
+						// background: lighten($track-color, $contrast)
+
+				&::-webkit-slider-runnable-track
+					@include track
+					box-shadow: $track-shadow
+					border: $track-border-width solid $track-border-color
+					border-radius: $track-radius
+
+				&::-webkit-slider-thumb
+					@include thumb
+					-webkit-appearance: none
+					margin-top: ((-$track-border-width * 2 + $track-height) / 2 - $thumb-height / 2)
+
+				&::-moz-range-track
+					box-shadow: $track-shadow
+					@include track
+					border: $track-border-width solid $track-border-color
+					border-radius: $track-radius
+					height: $track-height / 2
+
+				&::-moz-range-thumb
+					@include thumb(-4)
+
+				&::-ms-track
+					@include track
+					background: transparent
+					border-color: transparent
+					border-width: ($thumb-height / 2) 0
+					color: transparent
+
+				&::-ms-fill-lower
+					box-shadow: $track-shadow
+					background: $ie-bottom-track-color
+					border: $track-border-width solid $track-border-color
+					border-radius: ($track-radius * 2)
+
+				&::-ms-fill-upper
+					box-shadow: $track-shadow
+					background: $track-color
+					border: $track-border-width solid $track-border-color
+					border-radius: ($track-radius * 2)
+
+				&::-ms-thumb
+					@include thumb(-4)
+					margin-top: $track-height / 4
+
+				&:disabled
+					&::-webkit-slider-thumb
+						@include disabled
+
+					&::-moz-range-thumb
+						@include disabled
+
+					&::-ms-thumb
+						@include disabled
+
+					&::-webkit-slider-runnable-track
+						@include disabled
+
+					&::-ms-fill-lower
+						@include disabled
+
+					&::-ms-fill-upper
+						@include disabled
+
+				&-labels
+					color: $dark
+					display: -webkit-flex
+					display: -moz-flex
+					display: -ms-flex
+					display: -o-flex
+					display: flex
+					justify-content: space-between
+					padding: 0 $p1
+					width: 100%
+					span
+						background: $light
+						border-radius: 999px
+						color: #999
+						cursor: pointer
+						display: block
+						font-size: 12px
+						padding: 4px 10px
+						&.cp-active
+							background: $warning
+							color: #fff
+		&-progress
+			background: #E1E1E1
+			border-radius: 999px
+			display: block
+			height: 10px
+			margin: auto
+			max-width: 300px
+			text-align: center
+			width: 100%
+			&-bar
+				background: $primary
+				border-radius: inherit
+				height: 100%
+				width: 0
+			&-label
+				color: #c4c4c4
+				font-size: 14px
+				margin: $p2
+				text-align: center
+				
+				
+		&-a
+			cursor: pointer
+			text-decoration: none
+			&:hover
+				text-decoration: underline
+		&-img
+			max-height: 100%
+			max-width: 100%
+
+		&-text
+			&-center
+				text-align: center
+			&-left
+				text-align: left
+			&-right
+				text-align: right
+
+			&-danger
+				color: $danger
+			&-success
+				color: $success
+			&-warning
+				color: $warning
+
+		&-float
+			&-left
+				float: left
+			&-none
+				float: none
+			&-right
+				float: right
+
+		&-display
+			&-1
+				font-size: 3rem
+				font-weight: 100
+				line-height: 1
+				margin: 0 0 $p2
+			&-2
+				font-size: 2.5rem
+				font-weight: 100
+				margin: 0 0 $p2
+
+		&-flex
+			&-space-between
+				justify-content: space-between
+			&-items-center
+				align-items: center
+
+			&-center
+				height: 100%
+				display: flex
+				align-items: center
+				flex-flow: column
+				justify-content: center
+	input[type="file"].cp-input
+		display: none
+		+ label
+			background: $input-background-color
+			border: 1px solid $input-border-color
+			border-radius: $input-border-radius
+			color: $input-color
+			cursor: pointer
+			display: block
+			font-size: $input-font-size
+			height: 50px
+			line-height: 50px
+			padding: 0 $p2
+			position: relative
+			width: 100%
+			&:after
+				background: $dark
+				border-bottom-right-radius: 3px
+				border-top-right-radius: 3px
+				color: #fff
+				content: 'Choose File'
+				font-weight: 100
+				display: block
+				height: calc(100% + 2px)
+				line-height: inherit
+				padding: inherit
+				position: absolute
+				right: -1px
+				top: -1px

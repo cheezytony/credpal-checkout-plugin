@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout With Credpal</title>
+    <link rel="stylesheet" href="css/cp.css">
+  </head>
+  <body class="cp-body">
+    <div class="cp-container">
+      <div class="cp-dialog">
+        <div class="cp-content">
+          <div class="cp-sidebar"><img class="cp-sidebar-logo" src="logo-color.png" alt="Credpal"></div>
+          <div class="cp-main">
+            <div class="cp-header"></div>
+            <div class="cp-body" style="height: 100%">
+              <div class="cp-navigation">
+                <ul>
+                  <li><a data-cp-tab-to="1">1. Order Payment Type</a></li>
+                  <li><a data-cp-tab-to="2">2. Financial Details</a></li>
+                  <li><a data-cp-tab-to="3">3. Get History</a></li>
+                </ul>
+              </div>
+              <div class="cp-tab cp-flex-center" id="step-1">
+                <div class="cp-form-elements">
+                  <div class="cp-form-group">
+                    <label class="cp-input-label" for="email">Email</label>
+                    <div class="cp-input-group">
+                      <input class="cp-input" id="email" type="email" name="email" placeholder="prepoulated_wordpress_email@customer.com">
+                    </div>
+                    <div class="cp-form-text cp-text-danger" data-alert="email"></div>
+                  </div>
+                  <div class="cp-form-group">
+                    <label class="cp-input-label" for="password">Password</label>
+                    <div class="cp-input-group">
+                      <input class="cp-input" id="password" type="password" name="password" placeholder="pAsSwOrD12345">
+                    </div>
+                    <div class="cp-form-text cp-text-danger" data-alert="password"></div>
+                  </div>
+                  <div class="cp-text-right">
+                    <button class="cp-btn cp-btn-success cp-btn-wide" data-login>Checkout</button>
+                  </div>
+                </div>
+              </div>
+              <div class="cp-tab" id="step-2">
+                <div class="cp-form-elements cp-text-center">
+                  <p>Total Order Amount:</p>
+                  <h1 class="cp-display-1 cp-text-success">N25000</h1>
+                  <div class="cp-payment-schedule">
+                    <p>How would you like to pay?</p>
+                    <h2 class="cp-display-2"> <span class="cp-payment-amount">N26,750 </span>/ <span class="cp-payment-month cp-text-warning"> 1 Month</span></h2>
+                    <div class="cp-payment-range-labels"><span data-cp-schedule-to="1">1 Month</span><span data-cp-schedule-to="2">2 Months</span><span data-cp-schedule-to="3">3 Months</span></div>
+                    <input class="cp-payment-range" type="range" name="" step="1" max="3" min="1" value="1">
+                  </div>
+                </div>
+              </div>
+              <div class="cp-tab" id="step-3">
+                <div class="cp-form-elements">
+                  <div class="cp-form-group">
+                    <label class="cp-input-label" for="bvn">BVN</label>
+                    <div class="cp-input-group">
+                      <input class="cp-input" id="bvn" type="text" name="bvn" placeholder="000 0000 0000">
+                    </div>
+                    <div class="cp-form-text cp-text-danger" data-alert="bvn"></div>
+                  </div>
+                  <div class="cp-form-group">
+                    <label class="cp-input-label" for="company_name">Company Name</label>
+                    <div class="cp-input-group">
+                      <input class="cp-input" id="company_name" type="text" name="company_name" placeholder="Crednet Technologies">
+                    </div>
+                    <div class="cp-form-text cp-text-danger" data-alert="company_name"></div>
+                  </div>
+                  <div class="cp-form-group">
+                    <label class="cp-input-label" for="salary">Salary Range</label>
+                    <div class="cp-input-group">
+                      <select class="cp-input" id="salary" type="text" name="salary">
+                        <option value="1">N30,000 - N50,000</option>
+                      </select>
+                      <label class="cp-input-group-btn cp-btn cp-select-btn" for="salary"></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cp-tab" id="step-4">
+                <div class="cp-form-elements">
+                  <div class="cp-form-group">
+                    <p>I’d prefer to email my statement<span class="cp-switch">
+                        <input id="by_email" type="checkbox">
+                        <label for="by_email" data-on="ON" data-off="OFF"></label></span></p><small class="cp-text-danger">Your order might not be processed immediately</small>
+                  </div>
+                  <div class="cp-form-group">
+                    <label class="cp-input-label" for="bank">Select Bank</label>
+                    <div class="cp-input-group">
+                      <select class="cp-input" id="bank" type="text">
+                        <option value="1">GTB Bank Plc.</option>
+                      </select>
+                      <label class="cp-input-group-btn cp-btn cp-select-btn" for="bank"></label>
+                    </div>
+                  </div>
+                  <div class="cp-form-group">
+                    <label class="cp-input-label" for="statement">Upload Account Statement</label>
+                    <div class="cp-input-group">
+                      <input class="cp-input" id="statement" type="file">
+                      <label for="statement">Choose File</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cp-tab" id="step-5">
+                <div class="cp-form-elements cp-text-center">
+                  <h1 class="cp-display-1">Success</h1><img class="cp-img" src="svg/check-circle.svg" alt="Success" width="150" style="margin: 60px 0">
+                </div>
+              </div>
+              <div class="cp-progress">
+                <div class="cp-progress-bar"></div>
+              </div>
+              <div class="cp-progress-label"></div>
+              <div class="cp-clearfix general-submit">
+                <div class="cp-float-left" style="padding: 7.5px 0"><a class="cp-a cp-text-warning" href="#">Existing CredPal User? Login Now</a></div>
+                <div class="cp-float-right">
+                  <button class="cp-btn cp-btn-success cp-btn-wide cp-next-tab">Proceed</button>
+                </div>
+              </div>
+              <p class="cp-text-center" id="finish">
+                <button class="cp-btn cp-btn-success cp-btn-wide">Finish</button>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/cp.js"></script>
+  </body>
+</html>

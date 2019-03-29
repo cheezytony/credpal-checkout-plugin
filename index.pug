@@ -1,0 +1,117 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		title Checkout With Credpal
+		link(rel="stylesheet", href="css/cp.css")
+	body.cp-body
+		.cp-container
+			.cp-dialog
+				.cp-content
+					.cp-sidebar
+						img.cp-sidebar-logo(src="logo-color.png", alt="Credpal")
+					.cp-main
+						.cp-header
+						.cp-body(style="height: 100%")
+							.cp-navigation
+								ul
+									li
+										a(data-cp-tab-to="1") 1. Order Payment Type
+									li
+										a(data-cp-tab-to="2") 2. Financial Details
+									li
+										a(data-cp-tab-to="3") 3. Get History
+							.cp-tab.cp-flex-center#step-1
+								.cp-form-elements
+									.cp-form-group
+										label.cp-input-label(for="email") Email
+										.cp-input-group
+											input.cp-input#email(type="email" name="email" placeholder="prepoulated_wordpress_email@customer.com")
+										.cp-form-text.cp-text-danger(data-alert="email")
+
+									.cp-form-group
+										label.cp-input-label(for="password") Password
+										.cp-input-group
+											input.cp-input#password(type="password" name="password" placeholder="pAsSwOrD12345")
+										.cp-form-text.cp-text-danger(data-alert="password")
+
+									.cp-text-right
+										button.cp-btn.cp-btn-success.cp-btn-wide(data-login) Checkout
+							.cp-tab#step-2
+								.cp-form-elements.cp-text-center
+									p Total Order Amount:
+									h1.cp-display-1.cp-text-success N25000
+
+									.cp-payment-schedule
+										p How would you like to pay?
+										h2.cp-display-2 
+											span.cp-payment-amount N26,750 
+											| / 
+											span.cp-payment-month.cp-text-warning  1 Month
+										.cp-payment-range-labels
+											span(data-cp-schedule-to="1") 1 Month
+											span(data-cp-schedule-to="2") 2 Months
+											span(data-cp-schedule-to="3") 3 Months
+										input.cp-payment-range(type="range", name="", step="1", max="3", min="1", value="1")
+
+							.cp-tab#step-3
+								.cp-form-elements
+									.cp-form-group
+										label.cp-input-label(for="bvn") BVN
+										.cp-input-group
+											input.cp-input#bvn(type="text" name="bvn" placeholder="000 0000 0000")
+										.cp-form-text.cp-text-danger(data-alert="bvn")
+									.cp-form-group
+										label.cp-input-label(for="company_name") Company Name
+										.cp-input-group
+											input.cp-input#company_name(type="text" name="company_name" placeholder="Crednet Technologies")
+										.cp-form-text.cp-text-danger(data-alert="company_name")
+									.cp-form-group
+										label.cp-input-label(for="salary") Salary Range
+										.cp-input-group
+											select.cp-input#salary(type="text" name="salary")
+												option(value="1") N30,000 - N50,000
+											label.cp-input-group-btn.cp-btn.cp-select-btn(for="salary")
+
+							.cp-tab#step-4
+								.cp-form-elements
+									.cp-form-group
+										p I’d prefer to email my statement
+											span.cp-switch
+												input#by_email(type="checkbox")
+												label(for="by_email", data-on="ON", data-off="OFF")
+										small.cp-text-danger Your order might not be processed immediately
+									.cp-form-group
+										label.cp-input-label(for="bank") Select Bank
+										.cp-input-group
+											select.cp-input#bank(type="text")
+												option(value="1") GTB Bank Plc.
+											label.cp-input-group-btn.cp-btn.cp-select-btn(for="bank")
+									.cp-form-group
+										label.cp-input-label(for="statement") Upload Account Statement
+										.cp-input-group
+											input.cp-input#statement(type="file")
+											label(for="statement") Choose File
+							.cp-tab#step-5
+								.cp-form-elements.cp-text-center
+									h1.cp-display-1 Success
+
+									img.cp-img(src="svg/check-circle.svg", alt="Success", width="150", style="margin: 60px 0")
+
+
+							.cp-progress
+								.cp-progress-bar
+							.cp-progress-label
+
+							.cp-clearfix.general-submit
+								.cp-float-left(style="padding: 7.5px 0")
+									a.cp-a.cp-text-warning(href="#") Existing CredPal User? Login Now
+								.cp-float-right
+									button.cp-btn.cp-btn-success.cp-btn-wide.cp-next-tab Proceed
+
+							p.cp-text-center#finish
+								button.cp-btn.cp-btn-success.cp-btn-wide Finish
+
+		script(src="js/jquery-3.3.1.min.js")
+		script(src="js/cp.js")
