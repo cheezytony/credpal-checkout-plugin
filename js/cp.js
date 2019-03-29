@@ -141,6 +141,9 @@ class CP_APP {
 		})
 		.then(() => {
 			this.loading(false);
+			if (true) {
+				this.to(1);
+			}
 		}, () => {
 			this.loading(false);
 		});
@@ -244,6 +247,7 @@ class CP_APP {
 		price: 26750,
 		validation,
 		beforeViewChange (to, from, toView, fromView) {
+			if (from > to) {return true;}
 			return app.validate(from);
 			// return true;
 		},
@@ -265,6 +269,11 @@ class CP_APP {
 			}
 		}
 	});
+
+	app.urls = {
+		login: 'https://reqres.in/api/login',
+
+	}
 
 
 
